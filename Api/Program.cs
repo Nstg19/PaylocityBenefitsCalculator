@@ -9,8 +9,7 @@ using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var dbPath = Path.Join(Directory.GetParent(Environment.CurrentDirectory)?.FullName, "Api\\employee.db");
-builder.Services.AddDbContext<EmployeeDbContext>(options => options.UseSqlite($"Data Source={dbPath}"));
+builder.Services.AddDbContext<EmployeeDbContext>(options => options.UseSqlite($"Data Source=employee.db"));
 builder.Services.AddScoped<IRepository<Employee>, Repository<Employee>>();
 builder.Services.AddScoped<IRepository<Dependent>, Repository<Dependent>>();
 builder.Services.AddScoped<IRepository<Paycheck>, Repository<Paycheck>>();
